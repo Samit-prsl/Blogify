@@ -10,6 +10,7 @@ const authRoute = require('./routes/Auth');
 const UserRoute = require('./routes/User');
 const PostRoute = require('./routes/Post');
 const CategoriesRoute = require('./routes/Categories');
+const path = require('path');
 
 
 mongoose.connect(process.env.MONGO_URI,{
@@ -34,6 +35,9 @@ app.post('/api/upload',upload.single('file'),(req,res)=>{
 })
 
 app.use(express.json());
+
+app.use("/images",express.static(path.join(__dirname,"/images")))
+
 app.use(cors());
 app.use(cookieParser());
 app.use('/api/auth',authRoute);

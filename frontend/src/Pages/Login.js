@@ -25,6 +25,7 @@ export default function Login() {
       dispatch({
         type : "LOGIN_FAILURE"
       })
+      alert("Wrong Credentials")
     }
     
   }
@@ -40,7 +41,7 @@ export default function Login() {
             <input type="text" placeholder='Enter Username' className=' p-3 bg-white outline-none font-bold' ref={userRef} />
             <label className=' mt-3 mb-3 text-2xl' style={{'fontFamily': 'Josefin Sans, sans-serif'}}>Password</label>
             <input type="password" placeholder='Enter Password' className=' p-3 bg-white outline-none' ref={PassRef}/>
-            <button className=' mt-5 bg-[lightcoral] hover:bg-red-800 hover:text-white cursor-pointer rounded-lg p-2 text-black font-bold' onClick={HandleSubmit} >Login</button>
+            <button className=' mt-5 bg-[lightcoral] hover:bg-red-800 hover:text-white cursor-pointer rounded-lg p-2 text-black font-bold disabled:cursor-not-allowed' onClick={HandleSubmit} disabled={isFetching} >Login</button>
             {/* {error && <span className=' mx-auto mt-4 text-red-900 font-bold'>Enter correct username and password!</span>} */}
         </form>
         <Link to='/register'><button className=' absolute top-28 right-5  bg-teal-500 hover:bg-teal-900 p-3 rounded-lg font-bold hover:text-white text-black'>Register</button></Link>

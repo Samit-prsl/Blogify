@@ -12,9 +12,11 @@ import Settings from './Pages/Settings';
 import Write from './Pages/Write';
 import Single from './Pages/Single';
 import Home from './Pages/Home';
+import { useContext } from 'react';
+import { Context } from './Context/Context';
 
 function App() {
-  const user = false;
+  const {User} = useContext(Context)
   return (
     <Router>
     
@@ -27,10 +29,10 @@ function App() {
       {/* <Login/> */}
       <Routes>
         <Route exact path='/' Component={Home}/>
-        <Route path='/register' Component={user ? Home : Register}/>
-        <Route path='/login' Component={user ? Home : Login}/>
-        <Route path='/settings' Component={user ? Settings : Register}/>
-        <Route path='/write' Component={user ? Write : Register}/>
+        <Route path='/register' Component={User ? Home : Register}/>
+        <Route path='/login' Component={User ? Home : Login}/>
+        <Route path='/settings' Component={User ? Settings : Register}/>
+        <Route path='/write' Component={User ? Write : Register}/>
         <Route path='/post/:postId' Component={Single}/>
       </Routes>
       {/* <Register/> */}
