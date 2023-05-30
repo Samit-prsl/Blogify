@@ -26,13 +26,13 @@ export default function Settings() {
       data.append("file",file)
       UpdateUser.ProfilePic = fileName
       try {
-        await axios.post("http://localhost:5000/api/upload",data)
+        await axios.post("https://blogifyapi.onrender.com/api/upload",data)
       } catch (error) {
         
       }
     }
    try {
-    const res = await axios.put("http://localhost:5000/api/users/"+User._id,UpdateUser)
+    const res = await axios.put("https://blogifyapi.onrender.com/api/users/"+User._id,UpdateUser)
     dispatch({ type : "UPDATE_SUCCESS", payload : res.data})
    } catch (error) {
     dispatch({ type : "UPDATE_FAILURE"})

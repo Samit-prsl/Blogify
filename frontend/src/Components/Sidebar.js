@@ -7,7 +7,7 @@ export default function Sidebar() {
 
     useEffect(()=>{
         const getCat = async ()=>{
-            const res = await axios.get("http://localhost:5000/api/categories")
+            const res = await axios.get("https://blogifyapi.onrender.com/api/categories")
             SetCat(res.data)
         }
         getCat()

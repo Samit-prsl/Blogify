@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Post({post}) {
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://blogifyapi.onrender.com/images/"
   return (
     <>
     <Link to={`/post/${post._id}`}><div className=' post w-[330px] lg:w-[385px] m-6 text-md' style={{fontFamily: 'Varela Round, sans-serif'}}>

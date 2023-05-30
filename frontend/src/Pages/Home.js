@@ -12,7 +12,7 @@ export default function Home() {
 
   useEffect(()=>{
     const fetchposts = async () =>{
-      const res = await axios.get("http://localhost:5000/api/post"+ search )
+      const res = await axios.get("https://blogifyapi.onrender.com/api/post"+ search )
       Setposts(res.data);
       //console.log(res);
     }

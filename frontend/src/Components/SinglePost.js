@@ -14,20 +14,20 @@ export default function SinglePost() {
   const {User} = useContext(Context)
   useEffect(()=>{
     const GetPost = async ()=>{
-      const res = await axios.get("http://localhost:5000/api/post/"+path)
+      const res = await axios.get("https://blogifyapi.onrender.com/api/post/"+path)
       Setpost(res.data);
       Settitle(res.data.Title)
       Setdesc(res.data.Desc)
     }
   GetPost()
   },[path])
-  const PF = "http://localhost:5000/images/"
+  const PF = "https://blogifyapi.onrender.com/images/"
   const HandleUpdate = ()=>{
    Setupdate(true)
   }
   const HandleDelete = async ()=>{
     try {
-       await axios.delete("http://localhost:5000/api/post/"+path,{data : {Username : User.Username}})
+       await axios.delete("https://blogifyapi.onrender.com/api/post/"+path,{data : {Username : User.Username}})
       window.location.replace("/")
     } catch (error) {
       
@@ -35,7 +35,7 @@ export default function SinglePost() {
   }
   const HandleUpdateButton = async ()=>{
     try {
-      await axios.put("http://localhost:5000/api/post/"+path, {Username : User.Username, Title : title , Desc : desc})
+      await axios.put("https://blogifyapi.onrender.com/api/post/"+path, {Username : User.Username, Title : title , Desc : desc})
      window.location.replace("/")
    } catch (error) {
      

@@ -21,13 +21,13 @@ export default function Write() {
       data.append("file",file)
       newPost.Photo = fileName
       try {
-        await axios.post("http://localhost:5000/api/upload",data)
+        await axios.post("https://blogifyapi.onrender.com/api/upload",data)
       } catch (error) {
         
       }
     }
    try {
-    const res = await axios.post("http://localhost:5000/api/post",newPost)
+    const res = await axios.post("https://blogifyapi.onrender.com/api/post",newPost)
     window.location.replace("/post/" + res.data._id)
    } catch (error) {
     

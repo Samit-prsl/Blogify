@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import {AiOutlineSearch} from 'react-icons/ai'
 import { Context } from '../Context/Context'
 export default function Navbar() {
-    const PF = "http://localhost:5000/images/"
+    const PF = "https://blogifyapi.onrender.com/images/"
     const {User , dispatch} = useContext(Context)
     const HandleLogout = ()=>{
         dispatch({ type : "LOGOUT" })
