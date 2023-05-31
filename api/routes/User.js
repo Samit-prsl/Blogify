@@ -1,20 +1,21 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
+const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const User = require('../models/user');
 const Post = require('../models/post')
 
-const salt = bcrypt.genSaltSync(10);
+//const salt = bcrypt.genSaltSync(10);
 
 //Update
 router.put('/:id',async (req,res)=>{
     if(req.body.UserId === req.params.id)
     {
-        if(req.body.Password)
-        {
-            req.body.Password = await bcrypt.hashSync(req.body.Password,salt);
-        }
+         if(req.body.Password)
+         {
+             const salt = await bcrypt.genSalt(10);
+             req.body.Password = await bcrypt.hash(req.body.Password,salt);
+         }
         try { 
             const UpdatedUser = await User.findByIdAndUpdate(req.params.id,{
                 $set : req.body,
@@ -24,8 +25,8 @@ router.put('/:id',async (req,res)=>{
             res.status(500).json(error)
         }
     }
-    else
-    res.status(401).json("You Can Only Update your Acc")
+     else
+     res.status(401).json("You Can Only Update your Acc")
 })
 
 //Delete

@@ -9,7 +9,7 @@ export default function Settings() {
   const [Username,SetUsername] = useState("")
   const [Email,SetEmail] = useState("")
   const [Password,SetPassword] = useState("")
-  const PF = "http://localhost:5000/images/"
+  const PF = "https://blogifyapi.onrender.com/images/"
   const HandleSubmit = async (e)=>{
     e.preventDefault()
     dispatch({ type : "UPDATE_START"})
