@@ -34,8 +34,12 @@ export default function Settings() {
    try {
     const res = await axios.put("https://blogifyapi.onrender.com/api/users/"+User._id,UpdateUser)
     dispatch({ type : "UPDATE_SUCCESS", payload : res.data})
+    alert("Profile Updated")
+    window.location.replace("/")
    } catch (error) {
     dispatch({ type : "UPDATE_FAILURE"})
+    alert("An error occured please fill it again!")
+    
    }
   }
   const HandleLogout = ()=>{
